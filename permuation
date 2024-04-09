@@ -1,0 +1,17 @@
+def permutations(lst)
+    if len(lst) == 0:
+        return [[]]
+    
+    result = []
+    for i in lst:
+        remaining_elements = [x for x in lst if x != i]
+        for p in permutations(remaining_elements):
+            result.append([i] + p)
+    return result
+
+# Test the function
+m = [1, 2, 3]
+x = permutations(m)
+
+for i in x:
+    print(i)
